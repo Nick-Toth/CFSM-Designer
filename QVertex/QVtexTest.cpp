@@ -17,10 +17,11 @@
 class GraphView : public QMainWindow
 {
 	public:
-    GraphView( QWidget * parent = nullptr,
-							 Qt::WindowFlags flags = 0,
-							 int height = 0, int width = 0 ): QMainWindow(parent, flags) {
-		  setFixedSize(width, height);
+		GraphView( QWidget * parent = nullptr,
+			   Qt::WindowFlags flags = 0,
+			   int height = 0, int width = 0 ): QMainWindow(parent, flags)
+		{
+			setFixedSize(width, height);
 			setStyleSheet("background-color: #3c3c3c;");
 			tex = new QVertex(this, 25, "999", QColor("#fd625e"));
 			tex->relocate(100,100);
@@ -28,7 +29,6 @@ class GraphView : public QMainWindow
 		~GraphView() { return; }
 		QVertex * tex;
 };
-
 
 
 int main(int argc, char **argv)
@@ -41,4 +41,3 @@ int main(int argc, char **argv)
 
 	return app.exec();
 }
-
