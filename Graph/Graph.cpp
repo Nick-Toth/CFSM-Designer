@@ -29,10 +29,11 @@ export
 \\
 // ************************************************/
 template <typename T>
-int Graph<T> :: newVertex(const T & data, std::string key)
+int Graph<T> :: newVertex( const T & data,
+			   std::string key)
 {
-	// 
-	if(graph.find(key) != graph.end()) return -2;
+	// If the specified key is already in use, return error code -1.
+	if(graph.find(key) != graph.end()) return -1;
 
 	// Set the next open graph vertex to data.
 	graph[key].data = data;
@@ -49,15 +50,15 @@ int Graph<T> :: newVertex(const T & data, std::string key)
 // ************************************************/
 template <typename T>
 int Graph<T> :: newEdge( std::string from_key,
-												 std::string to_key,
-												 unsigned length )
+			 std::string to_key,
+			 unsigned length )
 {
-  // Stores the length of the edgelist in
-  // the vertex given by from_vtex to return.
-  int edge_len = 0;
+	// Stores the length of the edgelist in
+	// the vertex given by from_vtex to return.
+	int edge_len = 0;
 
-  // Temporary node for traversing the edge list of from_vtex
-  std::shared_ptr< Node<T> > edge = graph[from_key].head;
+	// Temporary node for traversing the edge list of from_vtex
+	std::shared_ptr< Node<T> > edge = graph[from_key].head;
 
 	// If to_vtex is already in from_vtex's
 	// edge list, report error code edge_len.
@@ -67,10 +68,10 @@ int Graph<T> :: newEdge( std::string from_key,
 	edge = std::shared_ptr< Node<T> >(new Node<T>);
 	edge->next = graph[from_key].head;
 
-  // Set new node's chain length to the
-  // current head's chain length + 1.
-  if(graph[from_key].head) edge->chain_length = graph[from_key].head->chain_length + 1;
-  else edge->chain_length = 1;
+	// Set new node's chain length to the
+	// current head's chain length + 1.
+	if(graph[from_key].head) edge->chain_length = graph[from_key].head->chain_length + 1;
+	else edge->chain_length = 1;
 
 	edge->adj_key = to_key;
 	
@@ -92,8 +93,8 @@ int Graph<T> :: displayChain(std::string vtex)
 	// If the specified vertex is invalid, return error code -1.
 	if(graph.find(vtex) == graph.end()) return -1;
 
-  // Temporary node for traversing the edge list of from_vtex
-  std::shared_ptr< Node<T> > edge = graph[vtex].head;
+	// Temporary node for traversing the edge list of from_vtex
+	std::shared_ptr< Node<T> > edge = graph[vtex].head;
 
 	// Loop control for traversing the edge list.
 	bool display_complete = edge == nullptr;
