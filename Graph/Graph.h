@@ -48,15 +48,15 @@ template <typename T>
 struct Vertex
 {
 	// Default vertex constructor.
-	Vertex(): data(T()), head(nullptr) {}
+	Vertex(): data(T()), head(nullptr) { }
 
 	// Initialize a new vertex.
 	Vertex(const T & data): data(T(data)),
-													head(nullptr) {}
+				head(nullptr) { }
 
 	// Copy the contents of an existing vertex.
 	Vertex(const Vertex<T> & vtex_src): data(T(vtex_src.data)),
-														 					head(vtex_src.head) {}
+					    head(vtex_src.head) { }
 
 	// Compare vertices (by data only).
 	inline bool operator==(const Vertex<T> & vtex_cmp) const
@@ -86,7 +86,7 @@ struct Node
 	std::shared_ptr< Node<T> > next; // Pointer to the next vertex in the edgelist.	
 
 	unsigned length, // Length between this vertex, and the vertex specified by next.
-					 chain_length; // Length of the edge list, starting from this node.
+		 chain_length; // Length of the edge list, starting from this node.
 
 	std::string adj_key; // Key of the adjacent vertex.
 };
@@ -104,7 +104,7 @@ class Graph
 
 		// Initialize a new graph.
 		Graph(unsigned vertices): graph(std::unordered_map< std::string, Vertex<T> >(vertices)),
-										 					current_size(vertices) { }
+					  current_size(vertices) { }
 
 		// Copy the contents of an existing graph.
 		Graph(const Graph<T> & graph_src): current_size(graph_src.current_size) { }
@@ -112,12 +112,12 @@ class Graph
 		~Graph() { }
 
 		// Add a new vertex to the graph.
-    int newVertex(const T &, std::string key);
+    		int newVertex(const T &, std::string key);
 
 		// Add a new edge between two vertices.
 		int newEdge( std::string,
-								 std::string,
-								 unsigned );
+			     std::string,
+			     unsigned );
 
 		// Display the edge list for some initial vertex.
 		int displayChain(std::string);
