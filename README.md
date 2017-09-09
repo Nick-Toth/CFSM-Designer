@@ -1,2 +1,2 @@
-# Graph-Tool
-A tool for general graph visualization.
+# CFSM-Designer
+A tool for designing and visualizing finite state machines.
