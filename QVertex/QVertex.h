@@ -35,9 +35,9 @@ class QVertex : public QWidget
 	public:
 
 		QVertex( QWidget * parent = nullptr,
-						 int radius = 25,
-						 std::string data = "000",
-						 QColor color = Qt::blue );
+			 int radius = 25,
+			 std::string data = "000",
+			 QColor color = Qt::blue );
 
 		QVertex(const QVertex & qvtex_src);
 
