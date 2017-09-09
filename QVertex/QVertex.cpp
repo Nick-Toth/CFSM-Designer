@@ -133,7 +133,6 @@ void QVertex :: ringPaintDelegate(QPainter & painter)
 }
 
 
-
 /* *****************************************************
 \\ Change the location (from the upper left corner) of
 // the vertex.
