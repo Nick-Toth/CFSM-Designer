@@ -41,8 +41,7 @@ QVertex :: QVertex(const QVertex & qvtex_src): data(qvtex_src.data),
 /* *****************************************************
 \\ Destructor for convenient use at a later date.
 //
-\\
-// *****************************************************/
+\\ *****************************************************/
 QVertex :: ~QVertex()
 { return; }
 
@@ -64,8 +63,7 @@ void QVertex :: operator=(const QVertex & qvtex_src)
 /* *****************************************************
 \\ Draws the vertex, using one of the paint delegates.
 //
-\\
-// *****************************************************/
+\\ *****************************************************/
 void QVertex :: paintEvent(QPaintEvent*)
 {	
 	// Create QPen and QPainter objects for styling the vertex.
