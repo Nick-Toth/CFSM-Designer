@@ -18,12 +18,12 @@
 \\
 // *****************************************************/
 QVertex :: QVertex( QWidget * parent,
-						 				int radius,
-						 				std::string data,
-						 				QColor color ): QWidget(parent),
-														 			 	data(data),
-													 	 				radius(radius),
-														 				color(color)
+		    int radius,
+		    std::string data,
+		    QColor color ): QWidget(parent),
+				    data(data),
+				    radius(radius),
+				    color(color)
 { return; }
 
 
@@ -33,8 +33,8 @@ QVertex :: QVertex( QWidget * parent,
 \\
 // *****************************************************/
 QVertex :: QVertex(const QVertex & qvtex_src): data(qvtex_src.data),
-																							 radius(qvtex_src.radius),
-																							 color(qvtex_src.color)
+					       radius(qvtex_src.radius),
+					       color(qvtex_src.color)
 { return; }
 
 
@@ -44,7 +44,7 @@ QVertex :: QVertex(const QVertex & qvtex_src): data(qvtex_src.data),
 \\
 // *****************************************************/
 QVertex :: ~QVertex()
-{	return; }
+{ return; }
 
 
 /* *****************************************************
@@ -151,7 +151,7 @@ void QVertex :: relocate(int x, int y)
 { return relocate(QPoint(x, y)); }
 
 
-// Add max function
+// Define max function for drawText
 #ifndef max
 #define max(a,b) ((a)>(b)?(a):(b))
 #endif // max
@@ -167,11 +167,13 @@ void QVertex :: drawText(QPoint new_location)
 	QPainter painter(this);
 
 	painter.setFont( QFont( "Helevetica",
-												  ( radius + (radius / 5) ) / max( 1, (0.55 * data.length()) )
-												));
+			// Scale text size, based on the vertex
+			// radius, and the length of the data.
+		        (radius + (radius / 5) ) / max(1, (0.55 * data.length()))
+		       ));
 
 	painter.drawText( QRect(new_location, QSize(width(), height())),
-										Qt::AlignCenter,
-										QString::fromStdString(data)
-									);
+		          Qt::AlignCenter,
+			  QString::fromStdString(data)
+ 			);
 }
