@@ -61,6 +61,19 @@ void QVertex :: operator=(const QVertex & qvtex_src)
 
 
 /* *****************************************************
+\\ Overloads the stream operator for printing the value
+// of data.
+\\
+// *****************************************************/
+std::ostream& operator<<( std::ostream & os,
+			  const QVertex & vtex )
+{
+	os << vtex.data << std::flush;
+	return os;
+}
+
+
+/* *****************************************************
 \\ Draws the vertex, using one of the paint delegates.
 //
 \\ *****************************************************/
