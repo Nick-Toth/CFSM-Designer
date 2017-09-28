@@ -1,0 +1,9 @@
+Functionality:
+  Create new vertices.
+  Destroy old vertices.
+  Create new edges.
+  Destroy old edges.
+  Switch graph (mode) i.e., Classic mode, Collatz mode, etc..
+  Undo/Redo Changes.
+  Direct access to vertices/edges by click/cli (w/ attribute modification).
+  Access to module functions/data by cli.
